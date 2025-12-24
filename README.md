@@ -1,5 +1,11 @@
 # Gil Vicente Tactical Intelligence Platform
 
+## ⚠️ Disclaimer / Aviso
+
+**PT:** Este é um projeto **não oficial**, criado por um adepto. O **Gil Vicente FC** **não** solicitou, não aprovou/endossou, não está afiliado e **não** remunerou este trabalho.
+
+**EN:** This is an **unofficial fan-made** project. **Gil Vicente FC** did **not** request or endorse it, is **not** affiliated with it, and **no** remuneration was provided.
+
 A comprehensive software system that integrates with football data APIs to analyze opponents of Gil Vicente FC and provide tactical insights and formation suggestions tailored to each upcoming match.
 As of right now, I'm using a free API and only going game by game, scrapping the last 5 games from each team to give an analysis.
 

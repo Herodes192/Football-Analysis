@@ -59,7 +59,7 @@ const Layout = ({ children }) => {
       <footer className="bg-gray-800 text-white py-4">
         <div className="container mx-auto px-4 text-center">
           <p className="text-sm">
-            © 2025 Gil Vicente Tactical Intelligence Platform - Built for Gil Vicente FC
+            © 2025 Gil Vicente Tactical Intelligence Platform — Unofficial fan-made project (not affiliated with Gil Vicente FC; not requested/endorsed; no remuneration).
           </p>
         </div>
       </footer>

@@ -1,5 +1,11 @@
 # 🚀 Quick Start Guide
 
+## ⚠️ Disclaimer / Aviso
+
+**PT:** Este é um projeto **não oficial**, criado por um adepto. O **Gil Vicente FC** **não** solicitou, não aprovou/endossou, não está afiliado e **não** remunerou este trabalho.
+
+**EN:** This is an **unofficial fan-made** project. **Gil Vicente FC** did **not** request or endorse it, is **not** affiliated with it, and **no** remuneration was provided.
+
 ## Gil Vicente Tactical Intelligence Platform
 
 Get up and running in 5 minutes!

@@ -1,5 +1,7 @@
 """
 Gil Vicente Tactical Intelligence Platform - Main Application Entry Point
+
+Disclaimer: Unofficial fan-made project. Gil Vicente FC did not request/endorse it, is not affiliated, and no remuneration was provided.
 """
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -29,7 +31,10 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(
     title="Gil Vicente Tactical Intelligence Platform",
-    description="Tactical analysis and opponent intelligence system for Gil Vicente FC",
+    description=(
+        "Unofficial fan-made tactical analysis and opponent intelligence project. "
+        "Gil Vicente FC did not request or endorse it, is not affiliated with it, and no remuneration was provided."
+    ),
     version="3.2.0",
     lifespan=lifespan
 )
@@ -60,6 +65,10 @@ async def root():
         "name": "Gil Vicente Tactical Intelligence Platform",
         "version": "3.2.0",
         "status": "operational",
+        "disclaimer": {
+            "pt": "Projeto não oficial, criado por um adepto. O Gil Vicente FC não solicitou/endossou, não está afiliado e não remunerou este trabalho.",
+            "en": "Unofficial fan-made project. Gil Vicente FC did not request or endorse it, is not affiliated, and no remuneration was provided."
+        },
         "features": [
             "Real-time fixture tracking",
             "AI-powered match analysis", 
