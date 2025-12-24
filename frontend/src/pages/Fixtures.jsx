@@ -85,7 +85,8 @@ const Fixtures = () => {
     : (formationChangesRaw?.recommendations ?? [])
 
   const pressingRec = tacticalPlan?.tactical_plan?.pressing_strategy?.recommendation
-  const pressingFirst = pressingRec?.pressing_recommendations?.[0]
+  const pressingRecs = Array.isArray(pressingRec?.pressing_recommendations) ? pressingRec.pressing_recommendations : []
+  const pressingFirst = pressingRecs[0]
   const pressingStyle = pressingRec?.style ?? pressingFirst?.adjustment ?? ''
   const pressingLineHeight = pressingRec?.line_height ?? pressingFirst?.target_line ?? ''
   const pressingRationale = pressingRec?.rationale ?? pressingFirst?.reason ?? ''
@@ -427,6 +428,16 @@ const Fixtures = () => {
                               <span className="text-gray-700">{pressingLineHeight}</span>
                             </div>
                             <p className="text-gray-700 mt-3">{pressingRationale}</p>
+                          {Array.isArray(pressingRecs) && pressingRecs.length > 0 && (
+                            <div className="mt-4 space-y-2">
+                              {pressingRecs.map((r, idx) => (
+                                <div key={idx} className="bg-white rounded-lg p-3 border border-red-200">
+                                  <p className="font-bold text-red-900">{r.adjustment} · {r.target_line}</p>
+                                  <p className="text-gray-700 text-sm mt-1">{r.reason}</p>
+                                </div>
+                              ))}
+                            </div>
+                          )}
                           </div>
                         </div>
                       )}

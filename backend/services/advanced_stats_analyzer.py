@@ -251,25 +251,110 @@ class AdvancedStatsAnalyzer:
         }
 
     def _get_possession_insight(self, possession: float, goals: int) -> str:
-        if possession > 55 and goals < 2:
-            return "High possession + low penetration → needs verticality"
-        if possession < 45 and goals > 1:
-            return "Low possession + high goals → counter-attacking efficiency"
-        return "Balanced possession and output"
+        # Possession bands
+        # <40: very low | 40-45: low | 45-55: balanced | 55-60: high | >=60: very high
+        if possession < 40:
+            if goals >= 2:
+                return "Very low possession (<40%) + high scoring → elite transition/counter efficiency"
+            if goals == 1:
+                return "Very low possession (<40%) → likely deep block + direct attacks"
+            return "Very low possession (<40%) + low scoring → struggling to sustain attacks"
+
+        if possession < 45:
+            if goals >= 2:
+                return "Low possession (40-45%) + high scoring → counter-attacking profile"
+            if goals == 1:
+                return "Low possession (40-45%) → selective possession, direct when possible"
+            return "Low possession (40-45%) + low scoring → limited control and chance volume"
+
+        if possession < 55:
+            if goals >= 2:
+                return "Balanced possession (45-55%) + strong output → efficient chance creation"
+            if goals == 0:
+                return "Balanced possession (45-55%) + no goals → conversion/finishing problem"
+            return "Balanced possession (45-55%) → standard control"
+
+        if possession < 60:
+            if goals == 0:
+                return "High possession (55-60%) + no goals → sterile control, needs penetration"
+            if goals == 1:
+                return "High possession (55-60%) + modest output → improve final-third actions"
+            return "High possession (55-60%) + strong output → dominant control"
+
+        # >= 60
+        if goals == 0:
+            return "Very high possession (≥60%) + no goals → severe final-third inefficiency"
+        if goals == 1:
+            return "Very high possession (≥60%) + low output → needs quicker tempo/verticality"
+        return "Very high possession (≥60%) + strong output → territorial dominance"
 
     def _get_shooting_insight(self, shots: int, goals: int) -> str:
-        if shots > 15 and goals < 2:
-            return "Many shots, low conversion → poor shot selection"
-        if shots < 10 and goals > 1:
-            return "Few shots, good conversion → excellent chance creation"
-        return "Standard shooting efficiency"
+        # Shot volume bands
+        # <6: very low | 6-9: low | 10-13: good | 14-17: high | >=18: very high
+        if shots < 6:
+            if goals >= 2:
+                return "Very low shot volume (<6) + high goals → extremely clinical / high-quality chances"
+            if goals == 1:
+                return "Very low shot volume (<6) → creating too little; needs more entries and shots"
+            return "Very low shot volume (<6) + 0 goals → blunt attack"
+
+        if shots < 10:
+            if goals >= 2:
+                return "Low shot volume (6-9) + high goals → efficient chance quality"
+            if goals == 0:
+                return "Low shot volume (6-9) + 0 goals → lacking chance creation"
+            return "Low shot volume (6-9) → needs more final-third volume"
+
+        if shots < 14:
+            if goals == 0:
+                return "Good shot volume (10-13) + 0 goals → finishing/conversion problem"
+            if goals >= 3:
+                return "Good shot volume (10-13) + high goals → very efficient finishing"
+            return "Good shot volume (10-13) → healthy attacking output"
+
+        if shots < 18:
+            if goals < 2:
+                return "High shot volume (14-17) + low goals → low shot quality/selection"
+            if goals >= 3:
+                return "High shot volume (14-17) + strong goals → sustained pressure and quality"
+            return "High shot volume (14-17) → strong chance volume"
+
+        # >= 18
+        if goals < 2:
+            return "Very high shot volume (≥18) + low goals → wasteful finishing / poor shot selection"
+        if goals >= 4:
+            return "Very high shot volume (≥18) + many goals → overwhelming attacking dominance"
+        return "Very high shot volume (≥18) → constant pressure"
 
     def _get_pressing_insight(self, ppda: float, goals_conceded: int) -> str:
-        if ppda < 10 and goals_conceded > 2:
-            return "Low PPDA + high xG conceded → press is disorganized"
-        if ppda < 12 and goals_conceded < 2:
-            return "Aggressive press working effectively"
-        return "Standard pressing approach"
+        # PPDA bands (lower = more intense press)
+        # <8.5: elite | 8.5-10.5: high | 10.5-13.5: medium | 13.5-16: low | >16: passive
+        if ppda < 8.5:
+            if goals_conceded >= 2:
+                return "Elite press (PPDA < 8.5) but conceding 2+ → press is high-risk / bypassed"
+            return "Elite press (PPDA < 8.5) → opponent suffocated; turnovers likely"
+
+        if ppda < 10.5:
+            if goals_conceded >= 2:
+                return "High press (PPDA 8.5-10.5) + conceding 2+ → structure issues behind press"
+            return "High press (PPDA 8.5-10.5) → aggressive and generally effective"
+
+        if ppda < 13.5:
+            if goals_conceded >= 3:
+                return "Medium press (PPDA 10.5-13.5) + 3+ conceded → defensive block vulnerable"
+            return "Medium press (PPDA 10.5-13.5) → balanced pressure"
+
+        if ppda <= 16.0:
+            if goals_conceded == 0:
+                return "Low press (PPDA 13.5-16) + clean sheet → compact block, selective pressing"
+            return "Low press (PPDA 13.5-16) → mostly mid/low block"
+
+        # >16
+        if goals_conceded >= 2:
+            return "Passive press (PPDA > 16) + conceding 2+ → too passive; invite pressure"
+        return "Passive press (PPDA > 16) → limited pressure; opponent allowed to build"
+
+
 
     def _get_empty_stats(self, team_name: str) -> Dict:
         return {

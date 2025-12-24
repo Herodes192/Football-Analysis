@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "rules": [
+    {
+      "id": "low_press_resistance_touchline_trap",
+      "name": "Low press resistance",
+      "conditions": [
+        {"feature": "press_resistance", "op": "<", "value": 0.4},
+        {"feature": "pass_accuracy", "op": "<", "value": 75}
+      ],
+      "exploit": "High press + touchline trap",
+      "recommendation_tags": ["pressing", "trap", "wide"]
+    },
+    {
+      "id": "weak_transition_defense_vertical_attack",
+      "name": "Weak transition defense",
+      "conditions": [
+        {"feature": "transition_defense", "op": "<", "value": 0.3}
+      ],
+      "exploit": "Immediate vertical attack + half-space runs",
+      "recommendation_tags": ["transition", "verticality", "half-spaces"]
+    }
+  ]
+}
