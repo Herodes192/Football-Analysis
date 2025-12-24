@@ -4,6 +4,15 @@ A comprehensive software system that integrates with football data APIs to analy
 As of right now, I'm using a free API and only going game by game, scrapping the last 5 games from each team to give an analysis.
 
 ## 🎯 Project Overview
+## 🧾 Data Sources & Accuracy Notes
+
+This project mixes **real fixture data** with **derived/estimated tactical metrics**.
+
+- **Real data**: fixtures/results are fetched from external providers (e.g. SofaScore scraper and/or API-Football, depending on the route/service).
+- **Estimated/heuristic data**: many advanced metrics (e.g. xG/xA/PPDA proxies, pressing/shape proxies) are computed because the upstream sources used here do **not** provide full event-level tracking.
+- **How to detect it**: several API responses include an `estimated: true` flag and/or a note like “Estimated proxy (no event data)”.
+- **Unavailable fields**: event/positional outputs such as zone heatmaps, touches-per-zone, overloads, and minute-by-minute timelines are returned as `null` unless you integrate an event feed or video tracking.
+
 
 The Gil Vicente Tactical Intelligence Platform helps coaches and analysts by:
 

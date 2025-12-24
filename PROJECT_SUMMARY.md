@@ -1,6 +1,15 @@
 # 🏟️ Gil Vicente Tactical Intelligence Platform - Project Summary
 
 ## ✅ Project Completion Status: **READY FOR DEVELOPMENT**
+## 🧾 Data Sources & Accuracy Notes
+
+This platform mixes **real fixture data** with **derived/estimated tactical metrics**.
+
+- Real fixture data is fetched from external providers (see `backend/api/routes/fixtures.py` and `backend/api/routes/real_fixtures.py`).
+- Many “advanced stats” are **heuristics** (see `backend/services/advanced_stats_analyzer.py`) because the upstream APIs used do not include full event-level tracking.
+- API payloads often include `estimated: true` and may mark some values as “Estimated proxy (no event data)”.
+- Event/positional fields (e.g. `touches_per_zone`, heatmaps, overloads, minute-by-minute context) are `null` unless you add an event feed or video-derived tracking.
+
 
 ---
 
