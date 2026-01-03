@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
+import { exportFixtureAnalysis } from '../utils/exportAnalysis'
 import { API_BASE_URL } from '../config/api'
 import { useQuery } from '@tanstack/react-query'
-import { Calendar, Target, TrendingUp, AlertTriangle, X, Shield, Users, Clock, Zap, Brain, BarChart } from 'lucide-react'
+import { Calendar, Target, TrendingUp, AlertTriangle, X, Shield, Users, Clock, Zap, Brain, BarChart, FileText, FileJson } from 'lucide-react'
 import AdvancedStatsPanel from '../components/AdvancedStatsPanel'
 
 const Fixtures = () => {
@@ -203,12 +204,34 @@ const Fixtures = () => {
                     })}
                   </p>
                 </div>
-                <button
-                  onClick={() => setSelectedMatch(null)}
-                  className="bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full p-2 transition-colors"
-                >
-                  <X size={24} />
-                </button>
+                <div className="flex items-center gap-2">
+                  {statistics && tacticalPlan && (
+                    <>
+                      <button
+                        onClick={() => exportFixtureAnalysis(selectedMatch, statistics, tacticalPlan, "text")}
+                        className="bg-green-500 hover:bg-green-600 rounded-lg px-3 py-2 transition-colors flex items-center gap-2"
+                        title="Export as TXT"
+                      >
+                        <FileText size={20} />
+                        <span className="text-sm font-medium">TXT</span>
+                      </button>
+                      <button
+                        onClick={() => exportFixtureAnalysis(selectedMatch, statistics, tacticalPlan, "json")}
+                        className="bg-blue-500 hover:bg-blue-600 rounded-lg px-3 py-2 transition-colors flex items-center gap-2"
+                        title="Export as JSON"
+                      >
+                        <FileJson size={20} />
+                        <span className="text-sm font-medium">JSON</span>
+                      </button>
+                    </>
+                  )}
+                  <button
+                    onClick={() => setSelectedMatch(null)}
+                    className="bg-white bg-opacity-20 hover:bg-opacity-30 rounded-full p-2 transition-colors"
+                  >
+                    <X size={24} />
+                  </button>
+                </div>
               </div>
 
               {/* Tabs */}

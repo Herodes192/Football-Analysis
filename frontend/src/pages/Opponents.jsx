@@ -1,8 +1,11 @@
 import React, { useMemo, useState } from 'react'
+import { exportOpponentAnalysis } from '../utils/exportAnalysis'
 import { API_BASE_URL } from '../config/api'
 import { useQuery } from '@tanstack/react-query'
 import { Users, TrendingUp, TrendingDown, Activity, Target, Shield, Zap } from 'lucide-react'
 import AdvancedStatsPanel from '../components/AdvancedStatsPanel'
+import { exportToJSON, exportToText } from '../utils/exportAnalysis'
+import { Download, FileJson, FileText } from 'lucide-react'
 
 const Opponents = () => {
   const [selectedOpponent, setSelectedOpponent] = useState(null)
@@ -70,7 +73,27 @@ const Opponents = () => {
   const goalsFor = formData?.statistics?.goals_scored ?? '—'
   const goalsAgainst = formData?.statistics?.goals_conceded ?? '—'
   if (opponentsLoading) {
-    return (
+  
+  const handleExport = (format) => {
+    if (!selectedOpponent || !selectedOpponentName) return
+    
+    const exportData = {
+      opponent: selectedOpponentName,
+      statistics: statsData,
+      tacticalPlan: tacticalData,
+      recentMatches: formData?.recent_matches || []
+    }
+    
+    const filename = `Gil_Vicente_vs_${selectedOpponentName.replace(/\s+/g, '_')}_${new Date().toISOString().split('T')[0]}`
+    
+    if (format === 'json') {
+      exportToJSON(exportData, filename)
+    } else if (format === 'text') {
+      exportToText(exportData, filename)
+    }
+  }
+
+  return (
       <div className="flex items-center justify-center py-12">
         <div className="text-center">
           <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-blue-600 mx-auto"></div>
@@ -91,6 +114,24 @@ const Opponents = () => {
         {/* Opponents List */}
         <div className="lg:col-span-1 space-y-3">
           <h3 className="text-lg font-bold text-gray-900 mb-4">Select Opponent</h3>
+          {selectedOpponent && (
+            <div className="flex gap-2 mb-4">
+              <button
+                onClick={() => handleExport('text')}
+                className="flex-1 flex items-center justify-center gap-2 px-3 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors text-sm"
+              >
+                <FileText size={16} />
+                <span>Export TXT</span>
+              </button>
+              <button
+                onClick={() => handleExport('json')}
+                className="flex-1 flex items-center justify-center gap-2 px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors text-sm"
+              >
+                <FileJson size={16} />
+                <span>Export JSON</span>
+              </button>
+            </div>
+          )}
           {opponents.map((opponent) => (
             <div
               key={opponent.id}
