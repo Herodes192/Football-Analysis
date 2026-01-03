@@ -17,7 +17,7 @@ const TacticalAnalysis = () => {
     queryKey: ['tactical-plan', teamId, opponentName],
     queryFn: async () => {
       const res = await fetch(
-        ``${API_BASE_URL}`/api/v1/tactical-plan/${teamId}?opponent_name=${encodeURIComponent(opponentName)}`
+        `${API_BASE_URL}/api/v1/tactical-plan/${teamId}?opponent_name=${encodeURIComponent(opponentName)}`
       )
       if (!res.ok) {
         const detail = await res.text().catch(() => '')

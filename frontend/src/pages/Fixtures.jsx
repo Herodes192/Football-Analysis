@@ -32,7 +32,7 @@ const Fixtures = () => {
     setLoadingStats(true)
     try {
       const res = await fetch(
-        ``${API_BASE_URL}`/api/v1/opponent-stats/${fixture.opponent_id}?opponent_name=${encodeURIComponent(fixture.opponent_name)}`
+        `${API_BASE_URL}/api/v1/opponent-stats/${fixture.opponent_id}?opponent_name=${encodeURIComponent(fixture.opponent_name)}`
       )
       const data = await res.json()
       setStatistics(data)
@@ -46,7 +46,7 @@ const Fixtures = () => {
     setLoadingPlan(true)
     try {
       const res = await fetch(
-        ``${API_BASE_URL}`/api/v1/tactical-plan/${fixture.opponent_id}?opponent_name=${encodeURIComponent(fixture.opponent_name)}`
+        `${API_BASE_URL}/api/v1/tactical-plan/${fixture.opponent_id}?opponent_name=${encodeURIComponent(fixture.opponent_name)}`
       )
       const data = await res.json()
       setTacticalPlan(data)
