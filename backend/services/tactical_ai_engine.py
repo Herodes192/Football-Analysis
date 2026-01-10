@@ -1,13 +1,13 @@
 """
-Tactical AI Engine - Match-to-Tactic Recommendation Model
-Generates AI-powered tactical recommendations based on match stats
+Tactical Engine - Match-to-Tactic Recommendation Model
+Generates Automated tactical recommendations based on match stats
 """
 from typing import Dict, List
 
 
 class TacticalAIEngine:
     """
-    AI-powered tactical recommendation system
+    Automated tactical recommendation system
     Analyzes opponent stats and generates actionable tactical advice
     """
 

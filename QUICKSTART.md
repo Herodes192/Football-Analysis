@@ -1,6 +1,6 @@
-# 🚀 Quick Start Guide
+# Quick Start Guide
 
-## ⚠️ Disclaimer / Aviso
+## Disclaimer / Aviso
 
 **PT:** Este é um projeto **não oficial**, criado por um adepto. O **Gil Vicente FC** **não** solicitou, não aprovou/endossou, não está afiliado e **não** remunerou este trabalho.
 
@@ -8,7 +8,7 @@
 
 ## Gil Vicente Tactical Intelligence Platform
 
-Get up and running in 5 minutes!
+Get up and running in 5 minutes.
 
 ---
 
@@ -51,13 +51,17 @@ docker-compose up -d
 
 ### 3. Access the Platform
 
+**Local Development:**
 - **Frontend Dashboard**: http://localhost:3000
 - **Backend API**: http://localhost:8000
 - **API Docs**: http://localhost:8000/docs
 
+**Production:**
+The platform is deployed and accessible online.
+
 ---
 
-## 📱 Using the Platform
+## Using the Platform
 
 ### Dashboard
 View upcoming matches, opponent tracking status, and recent activity.
@@ -79,7 +83,7 @@ View upcoming matches, opponent tracking status, and recent activity.
 
 ---
 
-## 🔧 Development Setup
+## Development Setup
 
 ### Backend Development
 
@@ -106,148 +110,110 @@ cd frontend
 # Install dependencies
 npm install
 
-# Run dev server
+# Run development server
 npm run dev
+
+# Build for production
+npm run build
 ```
 
 ---
 
-## 📊 API Quick Examples
+## API Quick Examples
 
 ### Get Upcoming Fixtures
 ```bash
 curl http://localhost:8000/api/v1/fixtures/upcoming?limit=5
 ```
 
-### Analyze Opponent
+### Get Opponent Statistics
+```bash
+curl http://localhost:8000/api/v1/opponents/123/statistics
+```
+
+### Generate Tactical Analysis
 ```bash
 curl -X POST http://localhost:8000/api/v1/tactical/analyze \
   -H "Content-Type: application/json" \
-  -d '[{"formation":"4-3-3","statistics":{"possession":55},"goals_scored":2,"goals_conceded":1,"result":"W","is_home":true}]'
-```
-
-### Get Match Brief
-```bash
-curl -X POST http://localhost:8000/api/v1/tactical/match-brief \
-  -H "Content-Type: application/json" \
-  -d '{"opponent_team_id":123,"matches":[...],"gil_vicente_formation":"4-3-3"}'
+  -d @matches.json
 ```
 
 ---
 
-## 🛠️ Common Commands
+## Key Features
 
-### View Logs
-```bash
-docker-compose logs -f
-docker-compose logs -f backend  # Specific service
-```
-
-### Restart Services
-```bash
-docker-compose restart
-docker-compose restart backend  # Specific service
-```
-
-### Stop Services
-```bash
-docker-compose down
-```
-
-### Update Code
-```bash
-git pull
-docker-compose up -d --build
-```
+**Opponent Tracking** - Automatically identify Gil Vicente's opponents  
+**Tactical Analysis** - Analyze formations, playing style, strengths/weaknesses  
+**Match Recommendations** - Get tactical suggestions for each match  
+**Data Visualization** - Clear, actionable insights dashboard  
+**API Integration** - Real-time football data from API-Football  
 
 ---
 
-## 📚 Documentation
+## Sample Workflow
 
-- **[README.md](README.md)** - Full project documentation
-- **[API_DOCUMENTATION.md](docs/API_DOCUMENTATION.md)** - Complete API reference
-- **[DEPLOYMENT.md](docs/DEPLOYMENT.md)** - Production deployment guide
-- **[API Docs (Interactive)](http://localhost:8000/docs)** - Swagger UI
+1. **Check Upcoming Fixtures**
+   - Navigate to Fixtures page
+   - View Gil Vicente's next matches
 
----
+2. **Select Opponent**
+   - Click on opponent team
+   - View recent match history
 
-## 🎯 Key Features
+3. **Generate Analysis**
+   - Click "Analyze Opponent"
+   - Review tactical patterns
+   - View formation tendencies
 
-✅ **Opponent Tracking** - Automatically identify Gil Vicente's opponents  
-✅ **Tactical Analysis** - Analyze formations, playing style, strengths/weaknesses  
-✅ **Match Recommendations** - Get tactical suggestions for each match  
-✅ **Data Visualization** - Clear, actionable insights dashboard  
-✅ **API Integration** - Real-time football data from API-Football  
-
----
-
-## ⚽ Sample Workflow
-
-1. **Check Upcoming Fixtures** → Dashboard or `/fixtures`
-2. **Identify Next Opponent** → Note team ID
-3. **Fetch Opponent Data** → API: `/opponents/{team_id}/matches`
-4. **Analyze Tactics** → API: `/tactical/analyze`
-5. **Generate Recommendations** → API: `/tactical/recommendations`
-6. **Review Match Brief** → Dashboard or API response
+4. **Get Recommendations**
+   - Request tactical brief
+   - Review suggested formations
+   - Export match preparation notes
 
 ---
 
-## 🆘 Troubleshooting
+## Troubleshooting
 
 ### Services won't start
 ```bash
 # Check if ports are available
-netstat -tuln | grep -E '3000|8000|5432|6379'
+netstat -tulpn | grep -E '3000|8000|5432|6379'
 
-# Check Docker status
-docker ps -a
+# Check Docker logs
+docker-compose logs -f
+```
+
+### API Key Issues
+- Verify key is correct in .env
+- Check API quota on RapidAPI dashboard
+- Ensure no extra spaces in .env file
+
+### Database Connection
+```bash
+# Check PostgreSQL is running
 docker-compose ps
-```
 
-### API returns errors
-```bash
-# Verify environment variables
-cat .env | grep FOOTBALL_API_KEY
-
-# Check backend logs
-docker-compose logs backend
-```
-
-### Database connection issues
-```bash
-# Restart database
-docker-compose restart postgres
-
-# Check database is ready
-docker-compose exec postgres pg_isready
+# Reset database
+docker-compose down -v
+docker-compose up -d
 ```
 
 ---
 
-## 🔐 Security Notes
+## Next Steps
 
-- Keep `.env` file private (never commit to git)
-- Use strong passwords in production
-- Enable SSL/TLS for production deployments
-- Rotate API keys regularly
-- Monitor API usage to avoid rate limits
+- Review [API Documentation](docs/API_DOCUMENTATION.md)
+- Explore [Tactical Features](TACTICAL_FEATURES.md)
+- Check [Project Summary](PROJECT_SUMMARY.md)
 
 ---
 
-## 📞 Need Help?
+## Ready to Analyze
 
-- Check logs: `docker-compose logs -f`
-- Review API docs: http://localhost:8000/docs
-- Check health endpoint: http://localhost:8000/api/v1/health
+You're all set! Start by viewing upcoming fixtures and analyzing your next opponent.
 
----
-
-## ⚽ Ready to Analyze!
-
-Your Gil Vicente Tactical Intelligence Platform is ready!
-
-Start by accessing the dashboard at **http://localhost:3000**
+For detailed information, see the full README.md
 
 ---
 
-**Built with ⚽ for Gil Vicente FC**
+**Built for Gil Vicente FC**

@@ -1,12 +1,12 @@
-# 🏟️ Gil Vicente Tactical Intelligence Platform - Project Summary
+#  Gil Vicente Tactical Intelligence Platform - Project Summary
 
-## ⚠️ Disclaimer / Aviso
+##  Disclaimer / Aviso
 
 **PT:** Este é um projeto **não oficial**, criado por um adepto. O **Gil Vicente FC** **não** solicitou, não aprovou/endossou, não está afiliado e **não** remunerou este trabalho.
 
 **EN:** This is an **unofficial fan-made** project. **Gil Vicente FC** did **not** request or endorse it, is **not** affiliated with it, and **no** remuneration was provided.
 
-## ✅ Project Completion Status: **READY FOR DEVELOPMENT**
+##  Project Completion Status: **READY FOR DEVELOPMENT**
 ## 🧾 Data Sources & Accuracy Notes
 
 This platform mixes **real fixture data** with **derived/estimated tactical metrics**.
@@ -19,35 +19,35 @@ This platform mixes **real fixture data** with **derived/estimated tactical metr
 
 ---
 
-## 📦 What Has Been Created
+##  What Has Been Created
 
 ### 1. **Backend Infrastructure** (Python/FastAPI)
 
 #### Core Application
-- ✅ `main.py` - FastAPI application entry point with CORS, lifespan management
-- ✅ `requirements.txt` - All Python dependencies specified
-- ✅ `Dockerfile` - Production-ready containerization
+-  `main.py` - FastAPI application entry point with CORS, lifespan management
+-  `requirements.txt` - All Python dependencies specified
+-  `Dockerfile` - Production-ready containerization
 
 #### Configuration
-- ✅ `config/settings.py` - Centralized configuration with Pydantic
-- ✅ Environment variable management
-- ✅ API rate limiting configuration
+-  `config/settings.py` - Centralized configuration with Pydantic
+-  Environment variable management
+-  API rate limiting configuration
 
 #### Database Models (SQLAlchemy)
-- ✅ `models/base.py` - Base model configuration
-- ✅ `models/team.py` - Team entity with Gil Vicente flag
-- ✅ `models/match.py` - Match details with tactical data
-- ✅ `models/tactical_profile.py` - Analyzed tactical tendencies
+-  `models/base.py` - Base model configuration
+-  `models/team.py` - Team entity with Gil Vicente flag
+-  `models/match.py` - Match details with tactical data
+-  `models/tactical_profile.py` - Analyzed tactical tendencies
 
 #### API Routes
-- ✅ `api/routes/health.py` - Health check endpoints
-- ✅ `api/routes/fixtures.py` - Fixture management endpoints
-- ✅ `api/routes/opponents.py` - Opponent data endpoints
-- ✅ `api/routes/tactical.py` - Tactical analysis endpoints
+-  `api/routes/health.py` - Health check endpoints
+-  `api/routes/fixtures.py` - Fixture management endpoints
+-  `api/routes/opponents.py` - Opponent data endpoints
+-  `api/routes/tactical.py` - Tactical analysis endpoints
 
 #### Services
-- ✅ `services/football_api_service.py` - External API integration with retry logic
-- ✅ `services/tactical_analysis_service.py` - Complete tactical analysis engine
+-  `services/football_api_service.py` - External API integration with retry logic
+-  `services/tactical_analysis_service.py` - Complete tactical analysis engine
   - Formation analysis
   - Playing style metrics
   - Strength/weakness identification
@@ -55,41 +55,41 @@ This platform mixes **real fixture data** with **derived/estimated tactical metr
   - Tactical recommendations
 
 #### Utilities
-- ✅ `utils/logger.py` - Structured JSON logging
+-  `utils/logger.py` - Structured JSON logging
 
 ---
 
 ### 2. **Frontend Dashboard** (React/Vite)
 
 #### Application Structure
-- ✅ `src/main.jsx` - React app entry point with React Query
-- ✅ `src/App.jsx` - Main app with routing
-- ✅ `package.json` - All dependencies specified
-- ✅ `vite.config.js` - Vite configuration with proxy
-- ✅ `tailwind.config.js` - TailwindCSS setup with custom colors
-- ✅ `Dockerfile` - Multi-stage production build
+-  `src/main.jsx` - React app entry point with React Query
+-  `src/App.jsx` - Main app with routing
+-  `package.json` - All dependencies specified
+-  `vite.config.js` - Vite configuration with proxy
+-  `tailwind.config.js` - TailwindCSS setup with custom colors
+-  `Dockerfile` - Multi-stage production build
 
 #### Components
-- ✅ `components/Layout.jsx` - Main layout with navigation
-- ✅ Gil Vicente branded header with colors (#003C71, #C41E3A, #FFD700)
+-  `components/Layout.jsx` - Main layout with navigation
+-  Gil Vicente branded header with colors (#003C71, #C41E3A, #FFD700)
 
 #### Pages
-- ✅ `pages/Dashboard.jsx` - Overview with stats and activity
-- ✅ `pages/Fixtures.jsx` - Fixture management
-- ✅ `pages/Opponents.jsx` - Opponent tracking
-- ✅ `pages/TacticalAnalysis.jsx` - Detailed analysis view
+-  `pages/Dashboard.jsx` - Overview with stats and activity
+-  `pages/Fixtures.jsx` - Fixture management
+-  `pages/Opponents.jsx` - Opponent tracking
+-  `pages/TacticalAnalysis.jsx` - Detailed analysis view
 
 #### Styling
-- ✅ `index.css` - Custom CSS with tactical-themed classes
-- ✅ TailwindCSS utility classes
-- ✅ Responsive design
+-  `index.css` - Custom CSS with tactical-themed classes
+-  TailwindCSS utility classes
+-  Responsive design
 
 ---
 
 ### 3. **Database Infrastructure**
 
 #### Schema Definition
-- ✅ `database/schemas/001_initial_schema.sql`
+-  `database/schemas/001_initial_schema.sql`
   - Teams table with indexes
   - Matches table with tactical data (JSONB)
   - Tactical profiles table
@@ -97,17 +97,17 @@ This platform mixes **real fixture data** with **derived/estimated tactical metr
   - Default Gil Vicente team insertion
 
 #### Features
-- ✅ JSONB fields for flexible tactical data
-- ✅ Foreign key relationships
-- ✅ Indexes for performance
-- ✅ Update triggers for timestamps
+-  JSONB fields for flexible tactical data
+-  Foreign key relationships
+-  Indexes for performance
+-  Update triggers for timestamps
 
 ---
 
 ### 4. **DevOps & Infrastructure**
 
 #### Docker Setup
-- ✅ `docker-compose.yml` - Complete multi-service orchestration
+-  `docker-compose.yml` - Complete multi-service orchestration
   - PostgreSQL 15 with health checks
   - Redis 7 for caching
   - Backend API service
@@ -115,20 +115,20 @@ This platform mixes **real fixture data** with **derived/estimated tactical metr
   - Volume persistence
 
 #### Configuration
-- ✅ `.env.example` - Complete environment template
-- ✅ `.gitignore` - Comprehensive exclusions
-- ✅ Backend Dockerfile
-- ✅ Frontend Dockerfile (multi-stage build)
+-  `.env.example` - Complete environment template
+-  `.gitignore` - Comprehensive exclusions
+-  Backend Dockerfile
+-  Frontend Dockerfile (multi-stage build)
 
 #### Scripts
-- ✅ `scripts/setup.sh` - Automated setup script with checks
+-  `scripts/setup.sh` - Automated setup script with checks
 
 ---
 
 ### 5. **Documentation**
 
 #### Core Documentation
-- ✅ `README.md` - Comprehensive project documentation
+-  `README.md` - Comprehensive project documentation
   - Architecture overview
   - Tech stack details
   - Setup instructions (Docker & local)
@@ -136,20 +136,20 @@ This platform mixes **real fixture data** with **derived/estimated tactical metr
   - Database schema
   - Configuration guide
 
-- ✅ `QUICKSTART.md` - 5-minute setup guide
+-  `QUICKSTART.md` - 5-minute setup guide
   - Prerequisites checklist
   - Installation steps
   - Common commands
   - Troubleshooting tips
 
-- ✅ `docs/API_DOCUMENTATION.md` - Complete API reference
+-  `docs/API_DOCUMENTATION.md` - Complete API reference
   - All endpoints documented
   - Request/response examples
   - Error handling
   - Rate limiting info
   - Best practices
 
-- ✅ `docs/DEPLOYMENT.md` - Production deployment guide
+-  `docs/DEPLOYMENT.md` - Production deployment guide
   - Server preparation
   - SSL configuration
   - Monitoring setup
@@ -159,24 +159,24 @@ This platform mixes **real fixture data** with **derived/estimated tactical metr
 
 ---
 
-## 🎯 Implemented Features
+##  Implemented Features
 
 ### Phase 1 - MVP (COMPLETED)
 
-#### Data Ingestion ✅
+#### Data Ingestion 
 - Football API integration (API-Football via RapidAPI)
 - Gil Vicente fixture tracking
 - Opponent match history fetching
 - Configurable data limits
 - Retry logic and error handling
 
-#### Data Processing ✅
+#### Data Processing 
 - Opponent-only data filtering
 - Structured data models (Teams, Matches, Tactical Profiles)
 - JSONB storage for flexible metrics
 - Timestamp tracking
 
-#### Tactical Analysis Engine ✅
+#### Tactical Analysis Engine 
 - **Formation Analysis**: Primary/secondary formations, usage frequency
 - **Playing Style Metrics**: Possession, build-up speed, pressing intensity
 - **Pattern Detection**: Home/away differences, consistency levels
@@ -184,7 +184,7 @@ This platform mixes **real fixture data** with **derived/estimated tactical metr
 - **Strength Identification**: Clinical finishing, possession control, shot accuracy
 - **Weakness Detection**: Defensive vulnerabilities, consistency issues
 
-#### Recommendation System ✅
+#### Recommendation System 
 - Formation recommendations based on opponent
 - Pressing strategy suggestions (high/mid/low)
 - Key zones to exploit identification
@@ -192,7 +192,7 @@ This platform mixes **real fixture data** with **derived/estimated tactical metr
 - Risk factor warnings
 - Tactical adjustment suggestions
 
-#### Output & Visualization ✅
+#### Output & Visualization 
 - RESTful API endpoints
 - React dashboard with multiple views
 - Interactive Swagger UI documentation
@@ -231,7 +231,7 @@ This platform mixes **real fixture data** with **derived/estimated tactical metr
 
 ---
 
-## 📊 API Endpoints Summary
+##  API Endpoints Summary
 
 ### Health & Status
 - `GET /api/v1/health` - Basic health check
@@ -335,7 +335,7 @@ This platform mixes **real fixture data** with **derived/estimated tactical metr
 
 ---
 
-## ✅ Quality Checklist
+##  Quality Checklist
 
 - [x] Clean, modular code structure
 - [x] Comprehensive error handling

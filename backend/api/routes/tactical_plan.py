@@ -1,5 +1,5 @@
 """
-Tactical Plan API - AI recommendations with Redis caching
+Tactical Plan API - Automated recommendations with Redis caching
 """
 from fastapi import APIRouter, HTTPException
 from services.match_analysis_service import MatchAnalysisService
@@ -10,12 +10,12 @@ router = APIRouter(prefix="/tactical-plan", tags=["Tactical Plan"])
 @router.get("/{opponent_id}")
 async def get_tactical_plan(opponent_id: str, opponent_name: str):
     """
-    Get AI-powered tactical plan with embedded statistical evidence
+    Get Automated tactical plan with embedded statistical evidence
     
-    🔄 CACHED: Results cached for 24 hours to prevent API token waste
+     CACHED: Results cached for 24 hours to prevent API token waste
     
     This endpoint provides coaching recommendations separated from raw statistics.
-    Stats are included as evidence to support the AI recommendations.
+    Stats are included as evidence to support the automated recommendations.
     """
     # Check cache first
     cache = get_cache_service()

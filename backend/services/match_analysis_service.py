@@ -42,7 +42,7 @@ class MatchAnalysisService:
                     opponent_name
                 )
             
-            # AI recommendations
+            # Tactical recommendations
             ai_recommendations = self.ai_engine.generate_recommendations(
                 opponent_advanced_stats,
                 None  # We could pass Gil Vicente stats here too

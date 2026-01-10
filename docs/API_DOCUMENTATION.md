@@ -1,6 +1,6 @@
 # API Documentation
 
-## ⚠️ Disclaimer / Aviso
+##  Disclaimer / Aviso
 
 **PT:** Este é um projeto **não oficial**, criado por um adepto. O **Gil Vicente FC** **não** solicitou, não aprovou/endossou, não está afiliado e **não** remunerou este trabalho.
 

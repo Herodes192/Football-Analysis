@@ -22,6 +22,6 @@ async def get_api_usage():
         "warnings": [
             "⚠️ Limited to 100 API calls per day",
             "💡 Use cached data when possible",
-            "🔄 Counter resets daily at midnight"
+            " Counter resets daily at midnight"
         ]
     }

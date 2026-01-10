@@ -1,5 +1,5 @@
 """
-AI Tactical Recommendation Engine - Match-to-Tactic Model
+Tactical Recommendation Engine - Match-to-Tactic Model
 Automatically generates tactical recommendations based on opponent stats
 """
 from typing import Dict, List
@@ -9,13 +9,13 @@ logger = setup_logger(__name__)
 
 
 class TacticalRecommendationEngine:
-    """AI-driven tactical recommendation system"""
+    """Rule-based tactical recommendation system"""
     
     def __init__(self):
         self.recommendation_rules = self._initialize_rules()
     
     def _initialize_rules(self) -> Dict:
-        """Initialize tactical decision rules (AI model foundation)"""
+        """Initialize tactical decision rules (rule-based system foundation)"""
         return {
             "formation_rules": [
                 {
@@ -81,7 +81,7 @@ class TacticalRecommendationEngine:
         }
     
     def generate_recommendations(self, opponent_stats: Dict) -> Dict:
-        """Generate AI-powered tactical recommendations"""
+        """Generate Automated tactical recommendations"""
         logger.info("Generating tactical recommendations from stats")
         
         recommendations = {
@@ -97,7 +97,7 @@ class TacticalRecommendationEngine:
         return recommendations
     
     def _recommend_formation(self, stats: Dict) -> Dict:
-        """AI recommendation for formation"""
+        """Recommendation for formation"""
         for rule in self.recommendation_rules["formation_rules"]:
             if rule["condition"](stats):
                 return {
@@ -113,7 +113,7 @@ class TacticalRecommendationEngine:
         }
     
     def _recommend_pressing_strategy(self, stats: Dict) -> Dict:
-        """AI recommendation for pressing"""
+        """Recommendation for pressing"""
         recommendations = []
         for rule in self.recommendation_rules["pressing_rules"]:
             if rule["condition"](stats):
@@ -131,7 +131,7 @@ class TacticalRecommendationEngine:
         return {"strategies": recommendations}
     
     def _recommend_attacking_approach(self, stats: Dict) -> Dict:
-        """AI recommendation for attacking"""
+        """Recommendation for attacking"""
         recommendations = []
         for rule in self.recommendation_rules["attacking_rules"]:
             if rule["condition"](stats):
@@ -153,7 +153,7 @@ class TacticalRecommendationEngine:
         return {"approaches": recommendations}
     
     def _recommend_defensive_setup(self, stats: Dict) -> Dict:
-        """AI recommendation for defensive setup"""
+        """Recommendation for defensive setup"""
         recommendations = []
         for rule in self.recommendation_rules["defensive_rules"]:
             if rule["condition"](stats):

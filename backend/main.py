@@ -23,7 +23,7 @@ async def lifespan(app: FastAPI):
     logger.info(f"🎯 Real-time match analysis enabled")
     logger.info(f"⚽ Using Free API Live Football Data")
     logger.info(f"📊 Enhanced opponent statistics available")
-    logger.info(f"🧠 AI-powered tactical planning available")
+    logger.info(f"Automated tactical planning available")
     logger.info(f"🔑 API fallback system active")
     yield
     logger.info("Shutting down application...")
@@ -71,7 +71,7 @@ async def root():
         },
         "features": [
             "Real-time fixture tracking",
-            "AI-powered match analysis", 
+            "Automated match analysis", 
             "Comprehensive opponent statistics",
             "Tactical plan generation with evidence",
             "Form analysis and predictions",

@@ -4,7 +4,7 @@
 
 ---
 
-## 1. Game-State–Aware Adjustments (CRITICAL)
+## 1. Game-State Aware Adjustments (CRITICAL)
 
 ### Add: Game State Adaptation
 
@@ -19,12 +19,12 @@
 
 **If Trailing**
 - Press: VERY HIGH
-- Defensive Line: +5–10m
+- Defensive Line: +5-10m
 - Risk tolerance: HIGH
 
 **Why this matters**
 - Prevents over-pressing when ahead
-- AI feels “match-aware”
+- System feels "match-aware"
 - Huge realism boost
 
 ---
@@ -55,10 +55,10 @@
 - Opponent facing own goal
 
 ### Add: Pressing Trap
-- Force play wide → isolate fullback → 3v1 press
+- Force play wide, isolate fullback, 3v1 press
 
 **Why**
-- Makes the AI actionable, not generic
+- Makes the system actionable, not generic
 - Massive tactical realism
 
 ---
@@ -66,7 +66,7 @@
 ## 4. Build-Up Pattern Suggestions (Missing Phase)
 
 ### Add: Build-Up Play
-- Phase 1: GK → CB split
+- Phase 1: GK to CB split
 - Phase 2: DM drops between CBs
 - Phase 3: Inverted winger occupies half-space
 
@@ -74,7 +74,7 @@
 - Direct build-up if press intensity > threshold
 
 **Why**
-- AI should guide positional play, not only outcomes
+- System should guide positional play, not only outcomes
 
 ---
 
@@ -83,66 +83,108 @@
 ### Add: Targeted Player Matchups
 - Isolate slow CB vs fast winger
 - Attack weaker fullback side
-- Force play onto opponent’s weak foot
+- Force play onto opponent's weak foot
 
-**AI Trigger**
+**Trigger**
 - Speed mismatch > X%
 - Aerial mismatch > X cm
 
 **Why**
-- This is where AI beats humans
-- Converts data → real tactical advantage
+- This is where data analysis beats humans
+- Converts data to real tactical advantage
 
 ---
 
 ## 6. Tempo & Rhythm Control (Often Ignored)
 
 ### Add: Tempo Management
-- After goal: Slow tempo (2–3 mins)
-- After concession: Fast tempo
+- After scoring: Slow circulation to absorb pressure
 - After sustained press: Slow circulation to recover
+- When trailing: Fast vertical play
 
 **Why**
-- Prevents emotional chaos
-- Feels “coached”, not scripted
+- Elite teams control game rhythm
+- Prevents physical burnout
 
 ---
 
-## 7. Defensive Weakness Exploitation Routes (More Specific)
+## 7. Zone-Based Overloads (Missing Detail)
 
-### Add execution paths (instead of generic weakness text)
-- Vertical pass → half-space run → cutback
-- Third-man run from CM
-- Early switch of play
+### Add: Overload Instructions
+- Half-space overloads (Mboula + FB + CM)
+- Wide overloads (winger + FB + CM)
+- Central overloads (False 9 + 2 CMs)
+
+**Trigger**
+- Opponent weak in specific zone
 
 **Why**
-- Moves from analysis → execution
+- Numerical superiority = goal creation
+- Coaches want zone-specific tactics
 
 ---
 
-## 8. Risk Management Layer (Coach-Level)
+## 8. Set-Piece Exploitation (Underutilized)
 
-### Add: Risk Profile
-- Current Risk Level: HIGH
-- Allowed turnovers in middle third: LOW
-- Allowed long shots: MEDIUM
+### Add: Set-Piece Strategy
+- Corner kick routines (near post flick, far post)
+- Free kick zones (direct vs cross)
+- Throw-in tactics (long throw exploitation)
 
-**Automatic Adjustment**
-- Risk decreases after 70’
+**Trigger**
+- Opponent weak at set-pieces
 
 **Why**
-- Prevents tactical suicide
-- Coaches think in risk windows
+- 30-40% of goals from set-pieces
+- Huge tactical advantage
 
 ---
 
-## 9. AI Confidence Explanation (Trust Builder)
+## 9. Confidence Explanation (Trust Builder)
 
-### Add: Confidence Drivers
-- Data sample size: HIGH
-- Opponent pattern consistency: MEDIUM
-- Match context similarity: HIGH
+### Add: Confidence Breakdown
+- "85% confident because:"
+  - 5 matches analyzed
+  - Clear pattern detected (4/5 matches)
+  - Statistical significance
 
 **Why**
-- Coaches trust AI that explains itself
-- Transparency = adoption
+- Coaches trust systems that explain themselves
+- Builds credibility
+
+---
+
+## 10. In-Game Trigger Conditions (Actionable)
+
+### Add: Trigger Conditions
+- IF opponent changes formation → suggest counter-adjustment
+- IF Gil Vicente concedes → suggest tactical response
+- IF opponent fullback sent off → exploit numerical advantage
+
+**Why**
+- Makes system feel like a live assistant
+- Highly actionable
+
+---
+
+## Priority Order
+
+1. **CRITICAL**: Game-state adjustments (Item 1)
+2. **HIGH**: Rest defense (Item 2)
+3. **HIGH**: Pressing triggers (Item 3)
+4. **MEDIUM**: Player exploitation (Item 5)
+5. **MEDIUM**: Build-up patterns (Item 4)
+6. **LOW**: All others (Items 6-10)
+
+---
+
+## Implementation Notes
+
+- These features require pattern rule updates
+- Some require additional data collection
+- All are feasible with current architecture
+- Focus on high-impact, low-effort items first
+
+---
+
+**Next Steps:** Prioritize Items 1-3 for immediate implementation

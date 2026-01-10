@@ -1,24 +1,23 @@
 # Gil Vicente Tactical Intelligence Platform
 
-## ⚠️ Disclaimer / Aviso
+## Disclaimer / Aviso
 
 **PT:** Este é um projeto **não oficial**, criado por um adepto. O **Gil Vicente FC** **não** solicitou, não aprovou/endossou, não está afiliado e **não** remunerou este trabalho.
 
 **EN:** This is an **unofficial fan-made** project. **Gil Vicente FC** did **not** request or endorse it, is **not** affiliated with it, and **no** remuneration was provided.
 
 A comprehensive software system that integrates with football data APIs to analyze opponents of Gil Vicente FC and provide tactical insights and formation suggestions tailored to each upcoming match.
-As of right now, I'm using a free API and only going game by game, scrapping the last 5 games from each team to give an analysis.
 
-## 🎯 Project Overview
-## 🧾 Data Sources & Accuracy Notes
+## Project Overview
+
+## Data Sources & Accuracy Notes
 
 This project mixes **real fixture data** with **derived/estimated tactical metrics**.
 
 - **Real data**: fixtures/results are fetched from external providers (e.g. SofaScore scraper and/or API-Football, depending on the route/service).
 - **Estimated/heuristic data**: many advanced metrics (e.g. xG/xA/PPDA proxies, pressing/shape proxies) are computed because the upstream sources used here do **not** provide full event-level tracking.
-- **How to detect it**: several API responses include an `estimated: true` flag and/or a note like “Estimated proxy (no event data)”.
+- **How to detect it**: several API responses include an `estimated: true` flag and/or a note like "Estimated proxy (no event data)".
 - **Unavailable fields**: event/positional outputs such as zone heatmaps, touches-per-zone, overloads, and minute-by-minute timelines are returned as `null` unless you integrate an event feed or video tracking.
-
 
 The Gil Vicente Tactical Intelligence Platform helps coaches and analysts by:
 
@@ -27,28 +26,32 @@ The Gil Vicente Tactical Intelligence Platform helps coaches and analysts by:
 - **Generating tactical recommendations** based on opponent tendencies
 - **Presenting insights** in a clear, actionable format
 
-## 🚀 Key Features
+## Live Deployment
 
-### Phase 1 - MVP (Current)
-- ✅ API integration with football data providers
-- ✅ Opponent filtering and tracking
-- ✅ Basic tactical summaries
-- ✅ Formation analysis
-- ✅ Playing style metrics
-- ✅ Strength/weakness identification
+The platform is currently deployed and accessible online.
 
-### Phase 2 - Intelligence Layer (Planned)
-- 🔄 Advanced pattern detection
-- 🔄 Rule-based tactical recommendations
-- 🔄 Interactive visual dashboards
-- 🔄 Historical performance tracking
+## Key Features
 
-### Phase 3 - Advanced Analytics (Future)
-- 📋 Predictive models
-- 📋 Match outcome simulations
-- 📋 Custom tactical profiles per coach
+### Core Capabilities
+- API integration with football data providers
+- Opponent filtering and tracking
+- Tactical summaries
+- Formation analysis
+- Playing style metrics
+- Strength/weakness identification
 
-## 🏗️ Architecture
+### Advanced Features
+- Advanced pattern detection
+- Rule-based tactical recommendations
+- Interactive visual dashboards
+- Historical performance tracking
+
+### Future Enhancements
+- Predictive models
+- Match outcome simulations
+- Custom tactical profiles per coach
+
+## Architecture
 
 ```
 ├── backend/                 # Python FastAPI backend
@@ -68,7 +71,7 @@ The Gil Vicente Tactical Intelligence Platform helps coaches and analysts by:
 └── config/                # Configuration files
 ```
 
-## 📊 Tech Stack
+## Tech Stack
 
 ### Backend
 - **Framework**: FastAPI
@@ -91,7 +94,7 @@ The Gil Vicente Tactical Intelligence Platform helps coaches and analysts by:
 - **Database**: PostgreSQL 15
 - **Cache**: Redis 7
 
-## 🛠️ Setup Instructions
+## Setup Instructions
 
 ### Prerequisites
 - Docker & Docker Compose
@@ -170,7 +173,12 @@ npm install
 npm run dev
 ```
 
-## 📡 API Documentation
+3. **Build for production**
+```bash
+npm run build
+```
+
+## API Documentation
 
 ### Core Endpoints
 
@@ -201,7 +209,7 @@ POST /api/v1/tactical/match-brief
 
 For detailed API documentation, visit: http://localhost:8000/docs
 
-## 🎯 Usage Examples
+## Usage Examples
 
 ### Analyzing an Opponent
 
@@ -238,7 +246,7 @@ curl -X POST http://localhost:8000/api/v1/tactical/match-brief \
   }'
 ```
 
-## 🗄️ Database Schema
+## Database Schema
 
 ### Teams
 - Core team information
@@ -255,7 +263,7 @@ curl -X POST http://localhost:8000/api/v1/tactical/match-brief \
 - Playing style metrics
 - Strengths and weaknesses
 
-## 🔒 Configuration
+## Configuration
 
 Key configuration options in `.env`:
 
@@ -273,14 +281,28 @@ REDIS_HOST=localhost
 CACHE_TTL=3600
 ```
 
-## 📈 Monitoring & Logging
+## Deployment
+
+### Production Environment Variables
+
+```env
+DEBUG=False
+HOST=0.0.0.0
+PORT=8000
+DATABASE_URL=postgresql://production_user:production_pass@db_host:5432/production_db
+REDIS_HOST=production_redis_host
+CORS_ORIGINS=["https://your-production-url.com"]
+LOG_LEVEL=INFO
+```
+
+## Monitoring & Logging
 
 - Structured JSON logging
 - Request/response logging
 - Error tracking
 - Performance metrics
 
-## 🧪 Testing
+## Testing
 
 ```bash
 # Backend tests
@@ -292,7 +314,7 @@ cd frontend
 npm test
 ```
 
-## 🤝 Contributing
+## Contributing
 
 This is a professional project for Gil Vicente FC. For contributions:
 
@@ -301,18 +323,18 @@ This is a professional project for Gil Vicente FC. For contributions:
 3. Update documentation
 4. Follow Python PEP 8 and ESLint standards
 
-## 📝 License
+## License
 
 Proprietary - Gil Vicente FC
 
-## 🔗 API Provider
+## API Provider
 
 This project uses [API-Football](https://www.api-football.com/) via RapidAPI for football data.
 
-## 📞 Support
+## Support
 
 For issues or questions, contact the development team.
 
 ---
 
-**Built with ⚽ for Gil Vicente FC**
+**Built for Gil Vicente FC**
